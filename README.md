@@ -7,8 +7,9 @@
 - [x] Tidy up build process
 - [x] Actually set up a database (vercel postgres)
 - [x] Attach db to UI
-- [ ] Add authentication (clerk)
+- [x] Add authentication (clerk)
 - [ ] Error management (sentry)
 - [ ] Add search functionality
 - [ ] Analytics (posthog)
 - [ ] Rate limiting (upstash)
+- [ ] Split out dbs into production and testing and ensure prod uses one db and qa uses another (local and preview environments)
