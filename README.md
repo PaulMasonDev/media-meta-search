@@ -8,8 +8,9 @@
 - [x] Actually set up a database (vercel postgres)
 - [x] Attach db to UI
 - [x] Add authentication (clerk)
-- [ ] Add Image Upload
+- [x] Add Image Upload
 - [ ] "taint" - server only
+- [ ] Use Next Image Component
 - [ ] Error management (sentry)
 - [ ] Add search functionality
 - [ ] Analytics (posthog)
