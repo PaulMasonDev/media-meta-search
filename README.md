@@ -8,6 +8,8 @@
 - [x] Actually set up a database (vercel postgres)
 - [x] Attach db to UI
 - [x] Add authentication (clerk)
+- [ ] Add Search Box
+- [ ] Add Search Results with tvmaze data source
 - [x] Add Image Upload
 - [ ] "taint" - server only
 - [ ] Use Next Image Component
