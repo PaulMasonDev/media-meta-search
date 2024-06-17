@@ -11,7 +11,7 @@
 - [ ] Add Search Box
 - [ ] Add Search Results with tvmaze data source
 - [x] Add Image Upload
-- [ ] "taint" - server only
+- [x] "taint" - server only
 - [ ] Use Next Image Component
 - [ ] Error management (sentry)
 - [ ] Add search functionality
