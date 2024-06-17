@@ -12,7 +12,7 @@
 - [ ] Add Search Results with tvmaze data source
 - [x] Add Image Upload
 - [x] "taint" - server only
-- [ ] Use Next Image Component
+- [x] Use Next Image Component
 - [ ] Error management (sentry)
 - [ ] Add search functionality
 - [ ] Analytics (posthog)
