@@ -4,10 +4,10 @@ import "@uploadthing/react/styles.css";
 import { ClerkProvider } from "@clerk/nextjs";
 
 import { GeistSans } from "geist/font/sans";
-import { TopNav } from "./_components/topnav";
 import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "./api/uploadthing/core";
+import { TopNav } from "./_components/TopNav";
 
 export const metadata = {
   title: "Media Meta Search",
