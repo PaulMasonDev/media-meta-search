@@ -13,8 +13,8 @@
 - [x] Add Image Upload
 - [x] "taint" - server only
 - [x] Use Next Image Component
-- [ ] Error management (sentry)
-- [ ] Add search functionality
+- [-] Error management (sentry) Revisit Later
+- [ ] Parallel Routing
 - [ ] Analytics (posthog)
 - [ ] Rate limiting (upstash)
 - [ ] Split out dbs into production and testing and ensure prod uses one db and qa uses another (local and preview environments)
