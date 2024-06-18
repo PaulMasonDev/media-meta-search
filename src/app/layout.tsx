@@ -7,7 +7,7 @@ import { GeistSans } from "geist/font/sans";
 import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "./api/uploadthing/core";
-import { TopNav } from "./_components/TopNav";
+import { TopNav } from "./_components/topnav";
 
 export const metadata = {
   title: "Media Meta Search",
