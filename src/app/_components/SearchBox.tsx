@@ -20,7 +20,7 @@ const SearchBox = () => {
     <div className="search-box">
       <form onSubmit={handleSubmit}>
         <input
-          className="w-80 rounded-xl p-2 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="rounded-xl p-2 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
           type="text"
           value={searchTerm}
           onChange={handleChange}
