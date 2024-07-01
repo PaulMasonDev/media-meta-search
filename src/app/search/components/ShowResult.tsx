@@ -47,7 +47,7 @@ export const ShowResult = ({ show }: TvShow) => {
             <h3 className="flex flex-wrap">
               <div className="">
                 {`"${nextEpisode.name}"`} airs on{" "}
-                {new Date(nextEpisode?.airdate).toLocaleString()}
+                {new Date(nextEpisode?.airdate).toLocaleDateString()}
               </div>
             </h3>
           )}
