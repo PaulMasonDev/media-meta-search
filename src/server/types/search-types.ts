@@ -12,7 +12,7 @@ export type TvShow = {
     averageRuntime: number;
     premiered: string;
     ended: string;
-    officialSite: string;
+    officialSite: string | null;
     schedule: {
       time: string;
       days: string[];

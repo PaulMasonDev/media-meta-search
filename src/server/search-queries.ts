@@ -1,4 +1,4 @@
-import { type TvShow } from "~/search-types";
+import { type TvShow } from "~/server/types/search-types";
 
 export const getTVShowsBySearchTerm = async (searchTerm: string) => {
   const response = await fetch(

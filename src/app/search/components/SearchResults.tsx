@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { type TvShow } from "~/search-types";
+import { type TvShow } from "~/server/types/search-types";
 import { getTVShowsBySearchTerm } from "~/server/search-queries";
 import { ShowResult } from "./ShowResult";
 
