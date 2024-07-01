@@ -21,7 +21,7 @@ const SearchBox = () => {
       <form onSubmit={handleSubmit}>
         <input
           className="rounded-xl p-2 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
-          type="text"
+          type="search"
           value={searchTerm}
           onChange={handleChange}
           placeholder="Search for a show..."
