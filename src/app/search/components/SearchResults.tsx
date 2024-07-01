@@ -30,9 +30,8 @@ export const SearchResults = (props: SearchResultsProperties) => {
   //   const searchResults = getTVShowsBySearchTerm(props.searchTerm ?? "");
 
   return (
-    <div>
+    <div className="grid grid-cols-1 gap-4 p-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
       {searchResults?.map((result) => {
-        // return <div key={result.show.id}>{result.show.name}</div>;
         return (
           <ShowResult
             key={result.show.id}
