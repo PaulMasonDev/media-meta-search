@@ -1,4 +1,8 @@
-import { type TvEpisode, type TvShow } from "~/server/types/search-types";
+import {
+  type TvEpisode,
+  type TvShow,
+  type TvShowWithScore,
+} from "~/server/types/search-types";
 
 export const getTVShowsBySearchTerm = async (searchTerm: string) => {
   const response = await fetch(
@@ -7,8 +11,8 @@ export const getTVShowsBySearchTerm = async (searchTerm: string) => {
   if (!response.ok) {
     throw new Error("Failed to fetch TV shows");
   }
-  const data: TvShow[] = (await response.json()) as TvShow[];
-  return data;
+  const data: TvShowWithScore[] = (await response.json()) as TvShowWithScore[];
+  return data.map((show) => show.show);
 };
 
 export const getEpisodeById = async (id: number) => {

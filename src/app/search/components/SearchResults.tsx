@@ -27,18 +27,11 @@ export const SearchResults = (props: SearchResultsProperties) => {
       void fetchTVShows();
     }
   }, [props.searchTerm]);
-  //   const searchResults = getTVShowsBySearchTerm(props.searchTerm ?? "");
 
   return (
     <div className="grid grid-cols-1 gap-10 p-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
       {searchResults?.map((result) => {
-        return (
-          <ShowResult
-            key={result.show.id}
-            show={result.show}
-            score={result.score}
-          />
-        );
+        return <ShowResult key={result.id} show={result} />;
       })}
     </div>
   );

@@ -1,61 +1,63 @@
-export type TvShow = {
+export type TvShowWithScore = {
   score: number;
-  show: {
+  show: TvShow;
+};
+
+export type TvShow = {
+  id: number;
+  url: string;
+  name: string;
+  type: string;
+  language: string;
+  genres: string[];
+  status: string;
+  runtime: number;
+  averageRuntime: number;
+  premiered: string;
+  ended: string;
+  officialSite: string | null;
+  schedule: {
+    time: string;
+    days: string[];
+  };
+  rating: {
+    average: number;
+  };
+  weight: number;
+  network: {
     id: number;
-    url: string;
     name: string;
-    type: string;
-    language: string;
-    genres: string[];
-    status: string;
-    runtime: number;
-    averageRuntime: number;
-    premiered: string;
-    ended: string;
-    officialSite: string | null;
-    schedule: {
-      time: string;
-      days: string[];
-    };
-    rating: {
-      average: number;
-    };
-    weight: number;
-    network: {
-      id: number;
+    country: {
       name: string;
-      country: {
-        name: string;
-        code: string;
-        timezone: string;
-      };
-      officialSite: string | null;
+      code: string;
+      timezone: string;
     };
-    webChannel: string | null;
-    dvdCountry: string | null;
-    externals: {
-      tvrage: number;
-      thetvdb: number;
-      imdb: string;
+    officialSite: string | null;
+  };
+  webChannel: string | null;
+  dvdCountry: string | null;
+  externals: {
+    tvrage: number;
+    thetvdb: number;
+    imdb: string;
+  };
+  image: {
+    medium: string;
+    original: string;
+  };
+  summary: string | null;
+  updated: number;
+  _links: {
+    self: {
+      href: string;
     };
-    image: {
-      medium: string;
-      original: string;
+    previousepisode: {
+      href: string;
+      name: string;
     };
-    summary: string | null;
-    updated: number;
-    _links: {
-      self: {
-        href: string;
-      };
-      previousepisode: {
-        href: string;
-        name: string;
-      };
-      nextepisode?: {
-        href: string;
-        name: string;
-      };
+    nextepisode?: {
+      href: string;
+      name: string;
     };
   };
 };
