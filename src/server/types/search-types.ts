@@ -34,8 +34,8 @@ export type TvShow = {
     webChannel: string | null;
     dvdCountry: string | null;
     externals: {
-      tvrage: 18164;
-      thetvdb: 81189;
+      tvrage: number;
+      thetvdb: number;
       imdb: string;
     };
     image: {
@@ -52,6 +52,37 @@ export type TvShow = {
         href: string;
         name: string;
       };
+      nextepisode?: {
+        href: string;
+        name: string;
+      };
+    };
+  };
+};
+
+export type TvEpisode = {
+  id: number;
+  url: string;
+  name: string;
+  season: number;
+  number: number;
+  type: string;
+  airdate: string;
+  airtime: string;
+  airstamp: string;
+  runtime: null;
+  rating: {
+    average: null;
+  };
+  image: null;
+  summary: null;
+  _links: {
+    self: {
+      href: string;
+    };
+    show: {
+      href: string;
+      name: string;
     };
   };
 };

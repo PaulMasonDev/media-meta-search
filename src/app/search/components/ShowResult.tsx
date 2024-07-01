@@ -1,8 +1,35 @@
+"use client";
+
 import Link from "next/link";
-import { type TvShow } from "~/server/types/search-types";
+import { type TvEpisode, type TvShow } from "~/server/types/search-types";
 import { GenresDisplay } from "./GenresDisplay";
+import { useEffect, useState } from "react";
 
 export const ShowResult = ({ show }: TvShow) => {
+  const [nextEpisode, setNextEpisode] = useState<null | TvEpisode>(null);
+
+  useEffect(() => {
+    const fetchNextEpisode = async () => {
+      if (show._links.nextepisode) {
+        const id = parseInt(
+          show._links.nextepisode?.href.replace(
+            "https://api.tvmaze.com/episodes/",
+            "",
+          ),
+        );
+        if (!Number.isNaN(id)) {
+          const response = await fetch(show._links.nextepisode.href);
+          if (!response.ok) {
+            throw new Error("Failed to fetch next episode");
+          }
+          const data: TvEpisode = (await response.json()) as TvEpisode;
+          setNextEpisode(data);
+        }
+      }
+    };
+    void fetchNextEpisode();
+  }, [show._links.nextepisode]);
+
   return (
     <div className="flex flex-col gap-4 overflow-hidden rounded-lg bg-white p-4 text-black shadow-lg">
       <div className="flex flex-col items-center gap-4">
@@ -16,6 +43,19 @@ export const ShowResult = ({ show }: TvShow) => {
           </Link>
           <GenresDisplay id={show.id} genres={show.genres} />
           <img src={show.image?.medium} alt={show.name} />
+          {nextEpisode && (
+            <h3 className="flex flex-wrap">
+              <div className="">
+                Next episode - {new Date(nextEpisode?.airdate).toLocaleString()}
+              </div>
+            </h3>
+          )}
+          {show.status === "Ended" && (
+            <em className="flex flex-wrap font-thin">
+              Show ended on {new Date(show.ended).toLocaleDateString()}. No more
+              new episodes
+            </em>
+          )}
         </div>
       </div>
       <div
@@ -25,15 +65,6 @@ export const ShowResult = ({ show }: TvShow) => {
       <div className="flex flex-wrap">
         <div>show.webChannel: </div>{" "}
         <div>{JSON.stringify(show.webChannel)}</div>
-      </div>
-      <div className="flex flex-wrap">
-        <div>show.genres: </div> <div>{show.genres.join(", ")}</div>
-      </div>
-      <div className="flex flex-wrap">
-        <div>show.language: </div> <div>{show.language}</div>
-      </div>
-      <div className="flex flex-wrap">
-        <div>show.status: </div> <div>{show.status}</div>
       </div>
       <div className="flex flex-wrap">
         <div>show.runtime: </div> <div>{show.runtime}</div>
