@@ -42,7 +42,7 @@ export type TvShow = {
       medium: string;
       original: string;
     };
-    summary: string;
+    summary: string | null;
     updated: number;
     _links: {
       self: {

@@ -51,17 +51,19 @@ export const ShowResult = ({ show }: TvShow) => {
             </h3>
           )}
           {show.status === "Ended" && (
-            <em className="flex flex-wrap font-thin">
-              Show ended on {new Date(show.ended).toLocaleDateString()}. No more
-              new episodes
+            <em className="flex flex-col items-center font-thin">
+              Show ended on {new Date(show.ended).toLocaleDateString()}.
             </em>
           )}
         </div>
       </div>
-      <div
-        className="flex"
-        dangerouslySetInnerHTML={{ __html: show.summary }}
-      ></div>
+      {show.summary && (
+        <div
+          dangerouslySetInnerHTML={{
+            __html: show.summary,
+          }}
+        ></div>
+      )}
       <div className="flex flex-wrap">
         <div>show.webChannel: </div>{" "}
         <div>{JSON.stringify(show.webChannel)}</div>
