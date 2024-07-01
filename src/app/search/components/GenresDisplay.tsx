@@ -1,21 +1,26 @@
 import {
   ActionSVG,
+  AdventureSVG,
   ChildrenSVG,
   ComedySVG,
   DramaSVG,
   FamilySVG,
   FantasySVG,
   HorrorSVG,
+  LegalSVG,
   MysterySVG,
   RomanceSVG,
   SciFiSVG,
   SupernaturalSVG,
+  ThrillerSVG,
 } from "~/SVG/genres";
 
 const getGenreSVG = (genre: string) => {
   switch (genre) {
     case "Action":
       return <ActionSVG />;
+    case "Adventure":
+      return <AdventureSVG />;
     case "Children":
       return <ChildrenSVG />;
     case "Comedy":
@@ -28,6 +33,8 @@ const getGenreSVG = (genre: string) => {
       return <FantasySVG />;
     case "Horror":
       return <HorrorSVG />;
+    case "Legal":
+      return <LegalSVG />;
     case "Mystery":
       return <MysterySVG />;
     case "Romance":
@@ -36,6 +43,8 @@ const getGenreSVG = (genre: string) => {
       return <SciFiSVG />;
     case "Supernatural":
       return <SupernaturalSVG />;
+    case "Thriller":
+      return <ThrillerSVG />;
     default:
       return null;
   }
