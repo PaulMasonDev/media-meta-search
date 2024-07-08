@@ -1,6 +1,5 @@
 import {
   type TvEpisode,
-  type TvShow,
   type TvShowWithScore,
 } from "~/server/types/search-types";
 
@@ -12,7 +11,15 @@ export const getTVShowsBySearchTerm = async (searchTerm: string) => {
     throw new Error("Failed to fetch TV shows");
   }
   const data: TvShowWithScore[] = (await response.json()) as TvShowWithScore[];
-  return data.map((show) => show.show);
+
+  const shows = data.map((show) => show.show);
+  const showsWithScore = shows.map((show) => {
+    return {
+      ...show,
+      score: data.find((s) => s.show.id === show.id)?.score,
+    };
+  });
+  return showsWithScore;
 };
 
 export const getEpisodeById = async (id: number) => {

@@ -5,6 +5,7 @@ export type TvShowWithScore = {
 
 export type TvShow = {
   id: number;
+  score?: number;
   url: string;
   name: string;
   type: string;
