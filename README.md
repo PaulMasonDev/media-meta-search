@@ -8,9 +8,9 @@
 - [x] Actually set up a database (vercel postgres)
 - [x] Attach db to UI
 - [x] Add authentication (clerk)
-- [ ] Add search Box to header
-- [ ] search landing page
-- [ ] Add TV Search Results with tvmaze data source
+- [x] Add search Box to header
+- [x] search landing page
+- [x] Add TV Search Results with tvmaze data source
 - [ ] Show Cards including Watching flag for user
 - [ ] Reddit connections
 - [x] Add Image Upload
