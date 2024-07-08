@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { type TvShow } from "~/server/types/search-types";
-import { getTVShowsBySearchTerm } from "~/server/search-queries";
+import { getTVShowsBySearchTerm, sortShows } from "~/server/search-queries";
 import { ShowResult } from "./ShowResult";
 
 interface SearchResultsProperties {
@@ -16,7 +16,7 @@ export const SearchResults = (props: SearchResultsProperties) => {
     const fetchTVShows = async () => {
       try {
         const results = await getTVShowsBySearchTerm(props.searchTerm);
-        setSearchResults(results);
+        setSearchResults(sortShows(results));
       } catch (error) {
         console.error("Failed to fetch TV shows:", error);
         setSearchResults([]);

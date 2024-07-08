@@ -1,4 +1,5 @@
 import {
+  TvShow,
   type TvEpisode,
   type TvShowWithScore,
 } from "~/server/types/search-types";
@@ -29,4 +30,33 @@ export const getEpisodeById = async (id: number) => {
   }
   const data: TvEpisode = (await response.json()) as TvEpisode;
   return data;
+};
+
+export const sortShows = (shows: TvShow[]) => {
+  return sortShowsByRunningStatus(shows);
+};
+
+const sortShowsByRunningStatus = (shows: TvShow[]) => {
+  //Sort by running status and then the ended shows should be sorted by ended date
+  const runningShows = shows.filter((show) => show.status === "Running");
+  const endedShows = shows.filter((show) => show.status === "Ended");
+  const sortedRunningShows = runningShows.sort((a, b) => {
+    if (a.premiered < b.premiered) {
+      return 1;
+    }
+    if (a.premiered > b.premiered) {
+      return -1;
+    }
+    return 0;
+  });
+  const sortedEndedShows = endedShows.sort((a, b) => {
+    if (a.ended < b.ended) {
+      return 1;
+    }
+    if (a.ended > b.ended) {
+      return -1;
+    }
+    return 0;
+  });
+  return [...sortedRunningShows, ...sortedEndedShows];
 };
