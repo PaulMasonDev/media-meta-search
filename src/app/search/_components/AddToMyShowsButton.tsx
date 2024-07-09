@@ -28,14 +28,22 @@ export const AddToMyShowsButton = ({
     }
   };
   return (
-    <div className="">
+    <div className="flex items-center justify-center">
       <SignedIn>
         {isMyShow ? (
-          <button onClick={handleDelete}>
-            This show is already in your shows
+          <button
+            className="focus:shadow-outline rounded bg-red-500 px-4 py-2 font-bold text-white hover:bg-red-700 focus:outline-none"
+            onClick={handleDelete}
+          >
+            Remove from My Shows
           </button>
         ) : (
-          <button onClick={handleAdd}>Add to my shows</button>
+          <button
+            className="focus:shadow-outline rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 focus:outline-none"
+            onClick={handleAdd}
+          >
+            Add to my shows
+          </button>
         )}
       </SignedIn>
     </div>

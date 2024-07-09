@@ -4,6 +4,7 @@ import { db } from "~/server/db";
 import { shows } from "~/server/db/schema";
 
 export const dynamic = "force-dynamic"; // defaults to auto
+
 export async function GET() {
   const user = auth();
   if (!user.userId) {
@@ -48,5 +49,6 @@ export async function DELETE(request: Request) {
   await db
     .delete(shows)
     .where(and(eq(shows.userId, userId), eq(shows.showId, showId)));
+
   return new Response("Show deleted from my shows");
 }
