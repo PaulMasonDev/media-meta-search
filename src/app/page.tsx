@@ -8,7 +8,7 @@ export default async function HomePage() {
     <main className="">
       <SignedOut>
         <div className="h-full w-full text-center text-2xl">
-          Please sign in above
+          Please sign in above to access your shows
         </div>
       </SignedOut>
       <SignedIn>

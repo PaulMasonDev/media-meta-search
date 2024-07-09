@@ -11,6 +11,19 @@ interface SearchResultsProperties {
 
 export const SearchResults = (props: SearchResultsProperties) => {
   const [searchResults, setSearchResults] = useState<TvShow[]>([]);
+  const [myShowIds, setMyShowIds] = useState<number[]>([]);
+
+  useEffect(() => {
+    const fetchMyShows = async () => {
+      const response = await fetch("/api/my-shows");
+      if (!response.ok) {
+        throw new Error("Failed to fetch my shows");
+      }
+      const fetchedShowIds = (await response.json()) as number[];
+      setMyShowIds(fetchedShowIds);
+    };
+    void fetchMyShows();
+  }, []);
 
   useEffect(() => {
     const fetchTVShows = async () => {
@@ -31,7 +44,13 @@ export const SearchResults = (props: SearchResultsProperties) => {
   return (
     <div className="grid grid-cols-1 gap-10 p-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
       {searchResults?.map((result) => {
-        return <ShowResult key={result.id} show={result} />;
+        return (
+          <ShowResult
+            key={result.id}
+            show={result}
+            isMyShow={myShowIds.includes(result.id)}
+          />
+        );
       })}
     </div>
   );

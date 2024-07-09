@@ -1,5 +1,5 @@
 import {
-  TvShow,
+  type TvShow,
   type TvEpisode,
   type TvShowWithScore,
 } from "~/server/types/search-types";

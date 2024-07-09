@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { SearchResults } from "./components/SearchResults";
+import { SearchResults } from "./_components/SearchResults";
 
 const SearchLandingPage = () => {
   const searchParams = useSearchParams();
