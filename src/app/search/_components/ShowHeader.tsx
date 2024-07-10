@@ -11,7 +11,7 @@ export const ShowHeader = ({ show }: { show: TvShow }) => {
         referrerPolicy="no-referrer"
         target="_blank"
       >
-        <h2 className="font-bold">{show.name}</h2>
+        <h2 className="text-2xl font-bold">{show.name}</h2>
       </Link>
       <GenresDisplay id={show.id} genres={show.genres} />
       <img src={show.image?.medium} alt={show.name} />

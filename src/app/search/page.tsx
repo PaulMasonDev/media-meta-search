@@ -8,8 +8,8 @@ const SearchLandingPage = () => {
   const searchTerm = searchParams.get("searchTerm");
 
   return (
-    <div className="m-4 flex flex-col items-center justify-center">
-      <h1 className="text-xl font-bold">
+    <div className="m-4 mt-1 flex flex-col items-center justify-center">
+      <h1 className="p-4 text-xl font-bold sm:text-3xl">
         Showing results for {`"${searchTerm}"`}
       </h1>
       <SearchResults searchTerm={searchTerm ?? ""} />
