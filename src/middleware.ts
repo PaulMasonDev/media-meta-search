@@ -4,7 +4,7 @@ export default clerkMiddleware(
   (auth, req) => {
     // Add your middleware checks
   },
-  { debug: true },
+  { debug: false },
 );
 
 export const config = {
