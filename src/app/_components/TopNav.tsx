@@ -1,5 +1,6 @@
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import SearchBox from "../search/_components/SearchBox";
+import Link from "next/link";
 
 export function TopNav() {
   return (
@@ -9,8 +10,10 @@ export function TopNav() {
         {/* <SignedIn>My Shows</SignedIn> */}
       </div>
 
-      <div className="flex gap-2">
-        <img className="ml-2" src="/mms-logo.jpg" width={32} alt="" />
+      <div className="flex items-center gap-2">
+        <Link className="ml-2 w-8" href="/">
+          <img src="/mms-logo.jpg" alt="" />
+        </Link>
         <div className="flex flex-row items-center gap-4">
           <SignedOut>
             <SignInButton />
