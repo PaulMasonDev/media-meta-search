@@ -10,7 +10,7 @@ export function TopNav() {
       </div>
 
       <div className="flex gap-2">
-        {/* <span>MMS</span> */}
+        <img src="/mms-logo.jpg" width={32} alt="" />
         <div className="flex flex-row items-center gap-4">
           <SignedOut>
             <SignInButton />
