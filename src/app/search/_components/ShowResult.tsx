@@ -23,16 +23,6 @@ export const ShowResult = ({
           }}
         ></div>
       )}
-      <div className="flex flex-wrap">
-        <div>show.webChannel: </div>{" "}
-        <div>{JSON.stringify(show.webChannel)}</div>
-      </div>
-      <div className="flex flex-wrap">
-        <div>show.runtime: </div> <div>{show.runtime}</div>
-      </div>
-      <div className="flex flex-wrap">
-        <div>show.schedule: </div> <div>{show.schedule.time}</div>
-      </div>
     </div>
   );
 };
