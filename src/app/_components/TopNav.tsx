@@ -19,7 +19,7 @@ export function TopNav() {
             <SignInButton />
           </SignedOut>
           <SignedIn>
-            <div className="pr-4 sm:pr-0">
+            <div className="pr-2.5 pt-1.5 sm:pr-0">
               <UserButton />
             </div>
           </SignedIn>
