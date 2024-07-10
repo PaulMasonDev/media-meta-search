@@ -13,8 +13,8 @@ export const ShowHeader = ({ show }: { show: TvShow }) => {
       >
         <img src={show.image?.medium} width={400} alt={show.name} />
       </Link>
-      {<NextEpisode show={show} />}
       <GenresDisplay id={show.id} genres={show.genres} />
+      {<NextEpisode show={show} />}
       {show.status === "Ended" && (
         <em className="flex flex-col items-center font-thin">
           Show ended on {new Date(show.ended).toLocaleDateString()}.

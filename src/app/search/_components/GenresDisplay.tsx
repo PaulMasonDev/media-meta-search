@@ -58,7 +58,7 @@ export const GenresDisplay = ({
   genres: string[];
 }) => {
   return (
-    <div className="flex flex-wrap gap-2 sm:h-5">
+    <div className="flex flex-wrap gap-2">
       {genres.map((genre) => (
         <div key={`${id}-${genre}`} title={`${genre}`}>
           {getGenreSVG(genre)}

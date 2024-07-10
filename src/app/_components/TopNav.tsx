@@ -20,6 +20,7 @@ export function TopNav() {
           </SignedOut>
           <SignedIn>
             <div className="pr-2.5 pt-1.5 sm:pr-0">
+              <Link href="/my-shows">MS</Link>
               <UserButton />
             </div>
           </SignedIn>
