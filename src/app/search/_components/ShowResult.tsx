@@ -12,10 +12,10 @@ export const ShowResult = ({
 }) => {
   return (
     <div className="flex flex-col gap-4 overflow-hidden rounded-lg bg-white p-4 text-black shadow-lg">
-      <AddToMyShowsButton show={show} isMyShow={isMyShow} />
       <div className="flex flex-col items-center gap-4">
         <ShowHeader show={show} />
       </div>
+      <AddToMyShowsButton show={show} isMyShow={isMyShow} />
       {show.summary && (
         <div
           dangerouslySetInnerHTML={{

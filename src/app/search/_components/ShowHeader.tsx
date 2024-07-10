@@ -11,11 +11,10 @@ export const ShowHeader = ({ show }: { show: TvShow }) => {
         referrerPolicy="no-referrer"
         target="_blank"
       >
-        <h2 className="text-2xl font-bold">{show.name}</h2>
+        <img src={show.image?.medium} width={400} alt={show.name} />
       </Link>
-      <GenresDisplay id={show.id} genres={show.genres} />
-      <img src={show.image?.medium} alt={show.name} />
       {<NextEpisode show={show} />}
+      <GenresDisplay id={show.id} genres={show.genres} />
       {show.status === "Ended" && (
         <em className="flex flex-col items-center font-thin">
           Show ended on {new Date(show.ended).toLocaleDateString()}.

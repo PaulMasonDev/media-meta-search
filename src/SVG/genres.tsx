@@ -1,8 +1,8 @@
 export const ActionSVG = () => (
   <svg
     fill="#000000"
-    width="16px"
-    height="16px"
+    width="40px"
+    height="40px"
     viewBox="0 0 32 32"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
@@ -14,8 +14,8 @@ export const ActionSVG = () => (
 export const AdventureSVG = () => (
   <svg
     fill="#000000"
-    width="16px"
-    height="16px"
+    width="40px"
+    height="40px"
     viewBox="0 0 64 64"
     version="1.1"
     xmlSpace="preserve"
@@ -99,8 +99,8 @@ export const AdventureSVG = () => (
 export const ChildrenSVG = () => (
   <svg
     fill="#000000"
-    width="16px"
-    height="16px"
+    width="40px"
+    height="40px"
     viewBox="0 0 1024 1024"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -115,8 +115,8 @@ export const ChildrenSVG = () => (
 export const ComedySVG = () => (
   <svg
     fill="#000000"
-    height="16px"
-    width="16px"
+    height="40px"
+    width="40px"
     version="1.1"
     id="Capa_1"
     xmlns="http://www.w3.org/2000/svg"
@@ -160,8 +160,8 @@ export const DramaSVG = () => (
     id="Layer_1"
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
-    width="16px"
-    height="16px"
+    width="40px"
+    height="40px"
     viewBox="0 0 74.482 50.814"
     xmlSpace="preserve"
   >
@@ -199,8 +199,8 @@ export const DramaSVG = () => (
 
 export const FamilySVG = () => (
   <svg
-    height="16px"
-    width="16px"
+    height="40px"
+    width="40px"
     version="1.1"
     id="_x32_"
     xmlns="http://www.w3.org/2000/svg"
@@ -252,8 +252,8 @@ export const FamilySVG = () => (
 export const FantasySVG = () => (
   <svg
     fill="#000000"
-    height="16px"
-    width="16px"
+    height="40px"
+    width="40px"
     version="1.1"
     id="Capa_1"
     xmlns="http://www.w3.org/2000/svg"
@@ -287,8 +287,8 @@ export const FantasySVG = () => (
 
 export const HorrorSVG = () => (
   <svg
-    height="16px"
-    width="16px"
+    height="40px"
+    width="40px"
     version="1.1"
     id="_x32_"
     xmlns="http://www.w3.org/2000/svg"
@@ -397,8 +397,8 @@ export const HorrorSVG = () => (
 export const LegalSVG = () => (
   <svg
     fill="#000000"
-    height="16px"
-    width="16px"
+    height="40px"
+    width="40px"
     version="1.1"
     id="Capa_1"
     xmlns="http://www.w3.org/2000/svg"
@@ -433,8 +433,8 @@ export const MysterySVG = () => (
     id="_x32_"
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
-    width="16px"
-    height="16px"
+    width="40px"
+    height="40px"
     viewBox="0 0 512 512"
     xmlSpace="preserve"
   >
@@ -504,8 +504,8 @@ export const MysterySVG = () => (
 
 export const RomanceSVG = () => (
   <svg
-    width="16px"
-    height="16px"
+    width="40px"
+    height="40px"
     viewBox="0 0 24 24"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
@@ -525,8 +525,8 @@ export const RomanceSVG = () => (
 export const SciFiSVG = () => (
   <svg
     fill="#000000"
-    width="16px"
-    height="16px"
+    width="40px"
+    height="40px"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -537,8 +537,8 @@ export const SciFiSVG = () => (
 export const SupernaturalSVG = () => (
   <svg
     fill="#000000"
-    width="16px"
-    height="16px"
+    width="40px"
+    height="40px"
     viewBox="0 0 1024 1024"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -553,8 +553,8 @@ export const ThrillerSVG = () => (
     id="Capa_1"
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
-    width="16px"
-    height="16px"
+    width="40px"
+    height="40px"
     viewBox="0 0 106.06 106.06"
     xmlSpace="preserve"
   >
