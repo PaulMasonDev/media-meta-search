@@ -14,14 +14,14 @@ export function TopNav() {
       </div>
 
       <div className="flex items-center gap-2">
-        <div className="flex flex-row items-center gap-4 pr-4 sm:pr-0">
+        <div className="flex flex-row items-center gap-4">
           <SignedOut>
-            <div className="pl-2">
-              <SignInButton />
-            </div>
+            <SignInButton />
           </SignedOut>
           <SignedIn>
-            <UserButton />
+            <div className="pr-4 sm:pr-0">
+              <UserButton />
+            </div>
           </SignedIn>
         </div>
       </div>
