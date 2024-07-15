@@ -1,5 +1,4 @@
-import { SignedIn, SignedOut } from "@clerk/nextjs";
-
+import { SignedOut } from "@clerk/nextjs";
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {

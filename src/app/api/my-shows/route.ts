@@ -14,7 +14,6 @@ export async function GET() {
   const myShows = await db.query.shows.findMany({
     where: (model, { eq }) => eq(model.userId, user.userId),
   });
-  console.log("no results: myShows", myShows);
   return new NextResponse(JSON.stringify(myShows.map((show) => show.showId)));
 }
 
