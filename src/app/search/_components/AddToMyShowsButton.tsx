@@ -17,7 +17,7 @@ export const AddToMyShowsButton = ({
 
   const handleAdd = async () => {
     setIsProcessing(true);
-    const response = await fetch("/api/my-shows", {
+    const response = await fetch("/api/my-show-ids", {
       method: "POST",
       body: JSON.stringify({ showId: show.id, name: show.name }),
     });
@@ -29,7 +29,7 @@ export const AddToMyShowsButton = ({
   };
   const handleDelete = async () => {
     setIsProcessing(true);
-    const response = await fetch("/api/my-shows", {
+    const response = await fetch("/api/my-show-ids", {
       method: "DELETE",
       body: JSON.stringify({ showId: show.id }),
     });

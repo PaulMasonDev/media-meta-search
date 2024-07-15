@@ -3,7 +3,7 @@
 
 import { sql } from "drizzle-orm";
 import {
-  index,
+  jsonb,
   pgTableCreator,
   serial,
   timestamp,
@@ -20,11 +20,10 @@ export const createTable = pgTableCreator(
   (name) => `media-meta-search_${name}`,
 );
 
-export const shows = createTable("show", {
+export const users = createTable("user", {
   id: serial("id").primaryKey(),
-  name: varchar("name", { length: 256 }).notNull(),
-  showId: serial("showId").notNull(),
   userId: varchar("userId", { length: 256 }).notNull(),
+  myShowIds: jsonb("my_show_ids").$type<number[]>().notNull(),
   createdAt: timestamp("created_at", { withTimezone: true })
     .default(sql`CURRENT_TIMESTAMP`)
     .notNull(),
