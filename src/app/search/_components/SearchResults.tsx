@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { type TvShow } from "~/server/types/search-types";
 import { getTVShowsBySearchTerm, sortShows } from "~/server/search-queries";
 import { ShowResult } from "./ShowResult";
+import { useSearchContext } from "../search-context";
 
 interface SearchResultsProperties {
   searchTerm: string;
@@ -11,19 +12,12 @@ interface SearchResultsProperties {
 
 export const SearchResults = (props: SearchResultsProperties) => {
   const [searchResults, setSearchResults] = useState<TvShow[]>([]);
+  const { myShows } = useSearchContext();
   const [myShowIds, setMyShowIds] = useState<number[]>([]);
 
   useEffect(() => {
-    const fetchMyShows = async () => {
-      const response = await fetch("/api/my-shows");
-      if (!response.ok) {
-        throw new Error("Failed to fetch my shows");
-      }
-      const fetchedShowIds = (await response.json()) as number[];
-      setMyShowIds(fetchedShowIds);
-    };
-    void fetchMyShows();
-  }, []);
+    setMyShowIds(myShows.map((show) => show.id));
+  }, [myShows]);
 
   useEffect(() => {
     const fetchTVShows = async () => {

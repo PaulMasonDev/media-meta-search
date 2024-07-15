@@ -2,6 +2,15 @@
 
 import { useSearchParams } from "next/navigation";
 import { SearchResults } from "./_components/SearchResults";
+import { SearchProvider } from "./search-context";
+
+const SearchLandingPageWrapped = () => {
+  return (
+    <SearchProvider>
+      <SearchLandingPage />;
+    </SearchProvider>
+  );
+};
 
 const SearchLandingPage = () => {
   const searchParams = useSearchParams();
@@ -17,4 +26,4 @@ const SearchLandingPage = () => {
   );
 };
 
-export default SearchLandingPage;
+export default SearchLandingPageWrapped;

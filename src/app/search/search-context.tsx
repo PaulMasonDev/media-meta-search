@@ -6,11 +6,15 @@ import {
   useMemo,
   useState,
   useContext,
+  useEffect,
 } from "react";
+import { type TvShow } from "~/server/types/search-types";
+import { fetchMyShows } from "./client-library";
 
 interface SearchContextType {
-  myShowIds: number[];
-  setMyShowIds: Dispatch<SetStateAction<number[]>>;
+  myShows: TvShow[];
+  setMyShows: Dispatch<SetStateAction<TvShow[]>>;
+  updateShows: () => Promise<void>;
 }
 
 export const SearchContext = createContext<SearchContextType | undefined>(
@@ -22,14 +26,28 @@ interface SearchProviderProperties {
 }
 
 export const SearchProvider = ({ children }: SearchProviderProperties) => {
-  const [myShowIds, setMyShowIds] = useState<number[]>([12345]);
+  const [myShows, setMyShows] = useState<TvShow[]>([]);
+
+  useEffect(() => {
+    const fetchShows = async () => {
+      const fetchedShows = await fetchMyShows();
+      setMyShows(fetchedShows);
+    };
+    void fetchShows();
+  }, []);
+
+  const updateShows = async () => {
+    const fetchedShows = await fetchMyShows();
+    setMyShows(fetchedShows);
+  };
 
   const contextValue = useMemo(
     () => ({
-      myShowIds,
-      setMyShowIds,
+      myShows,
+      setMyShows,
+      updateShows,
     }),
-    [myShowIds],
+    [myShows],
   );
 
   return (
