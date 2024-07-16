@@ -8,3 +8,16 @@ export const fetchMyShows = async () => {
   const fetchedShows = (await response.json()) as TvShow[];
   return fetchedShows;
 };
+
+export const fetchShowRecommendations = async (showNames: string[]) => {
+  const response = await fetch("/api/my-show-recommendations", {
+    method: "POST",
+    body: JSON.stringify({ names: showNames }),
+  });
+  if (!response.ok) {
+    throw new Error("Failed to fetch show recommendations");
+  }
+  const recommendations = (await response.json()) as string;
+  console.log(recommendations);
+  return recommendations;
+};
