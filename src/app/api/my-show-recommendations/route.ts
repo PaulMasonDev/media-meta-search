@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
   const data: MyShowRecommendationPostData =
     (await request.json()) as MyShowRecommendationPostData;
 
-  const prompt = `Based on the following shows: ${data.names.join(", ")}, recommend me some new shows to watch (maximum of 2 shows). Please include potential reasons for the recommendations as well when applicable.`;
+  const prompt = `Based on the following shows: ${data.names.join(", ")}, recommend me some new shows to watch (maximum of 4 shows). Please include potential reasons for the recommendations as well when applicable.`;
 
   try {
     const openAIResponse = await fetch(
