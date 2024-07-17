@@ -2,16 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { ShowResult } from "../search/_components/ShowResult";
-import { SearchProvider, useSearchContext } from "../search/search-context";
+import { useSearchContext } from "../search/search-context";
 import { fetchShowRecommendations } from "../search/client-library";
-
-const MyShowsPageWrapped = () => {
-  return (
-    <SearchProvider>
-      <MyShowsPage />
-    </SearchProvider>
-  );
-};
 
 const MyShowsPage = () => {
   const { myShows } = useSearchContext();
@@ -48,4 +40,4 @@ const MyShowsPage = () => {
   );
 };
 
-export default MyShowsPageWrapped;
+export default MyShowsPage;
