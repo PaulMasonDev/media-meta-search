@@ -1,8 +1,7 @@
 import { SignedIn } from "@clerk/nextjs";
-// import { addToMyShows } from "~/server/search-queries";
 import { type TvShow } from "~/server/types/search-types";
 import { useState } from "react";
-import { useSearchContext } from "../search/search-context";
+import { useShowsContext } from "../search/shows-context";
 
 export const AddToMyShowsButton = ({
   show,
@@ -11,7 +10,7 @@ export const AddToMyShowsButton = ({
   show: TvShow;
   isMyShow: boolean;
 }) => {
-  const { updateShows } = useSearchContext();
+  const { updateShows } = useShowsContext();
 
   const [isProcessing, setIsProcessing] = useState(false);
 

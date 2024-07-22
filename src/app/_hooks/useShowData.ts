@@ -1,9 +1,8 @@
-// hooks/useShowData.ts
 import { useEffect, useState } from "react";
-import { useSearchContext } from "../search/search-context";
+import { useShowsContext } from "../search/shows-context";
 
 export const useShowData = () => {
-  const { myShows } = useSearchContext();
+  const { myShows } = useShowsContext();
   const [myShowIds, setMyShowIds] = useState<number[]>([]);
 
   useEffect(() => {

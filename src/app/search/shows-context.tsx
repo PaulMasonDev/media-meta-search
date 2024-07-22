@@ -13,12 +13,7 @@ import {
 import { type TvShow } from "~/server/types/search-types";
 import { fetchMyShows } from "../client-library";
 
-// export interface ShowRecommendation {
-//   showName: string;
-//   reason: string;
-// }
-
-interface SearchContextType {
+interface ShowsContextType {
   myShows: TvShow[];
   setMyShows: Dispatch<SetStateAction<TvShow[]>>;
   myShowRecommendations: TvShow[];
@@ -26,15 +21,15 @@ interface SearchContextType {
   updateShows: () => Promise<void>;
 }
 
-export const SearchContext = createContext<SearchContextType | undefined>(
+export const ShowsContext = createContext<ShowsContextType | undefined>(
   undefined,
 );
 
-interface SearchProviderProperties {
+interface ShowsProviderProperties {
   children: ReactNode;
 }
 
-export const SearchProvider = ({ children }: SearchProviderProperties) => {
+export const ShowsProvider = ({ children }: ShowsProviderProperties) => {
   const [myShows, setMyShows] = useState<TvShow[]>([]);
   const [myShowRecommendations, setMyShowRecommendations] = useState<TvShow[]>(
     [],
@@ -65,17 +60,17 @@ export const SearchProvider = ({ children }: SearchProviderProperties) => {
   );
 
   return (
-    <SearchContext.Provider value={contextValue}>
+    <ShowsContext.Provider value={contextValue}>
       {children}
-    </SearchContext.Provider>
+    </ShowsContext.Provider>
   );
 };
 
-export const useSearchContext = () => {
-  const context = useContext(SearchContext);
+export const useShowsContext = () => {
+  const context = useContext(ShowsContext);
 
   if (context === undefined) {
-    throw new Error("useSearchContext must be used within a SearchProvider");
+    throw new Error("useShowsContext must be used within a ShowsProvider");
   }
 
   return context;

@@ -1,15 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useSearchContext } from "../search/search-context";
 import { fetchShowRecommendations } from "../client-library";
 import { useRouter } from "next/navigation";
 import { useShowData } from "../_hooks/useShowData";
 import ShowList from "../_components/ShowList";
+import { useShowsContext } from "../search/shows-context";
 
 const MyShowsPage = () => {
   const router = useRouter();
-  const { myShows, setMyShowRecommendations } = useSearchContext();
+  const { myShows, setMyShowRecommendations } = useShowsContext();
   const { myShowIds } = useShowData();
   const [showNames, setShowNames] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(false);

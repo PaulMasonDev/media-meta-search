@@ -5,7 +5,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { GeistSans } from "geist/font/sans";
 import { TopNav } from "./_components/TopNav";
 import { Toaster } from "sonner";
-import { SearchProvider } from "./search/search-context";
+import { ShowsProvider } from "./search/shows-context";
 
 export const metadata = {
   title: "Media Meta Search",
@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <SearchProvider>
+      <ShowsProvider>
         <html lang="en" className={`${GeistSans.variable}`}>
           <body className="dark">
             <div className="grid h-screen grid-rows-[auto,1fr]">
@@ -32,7 +32,7 @@ export default function RootLayout({
             <h6 className="text-center text-xs">&copy; 2024 Paul Mason</h6>
           </body>
         </html>
-      </SearchProvider>
+      </ShowsProvider>
     </ClerkProvider>
   );
 }
