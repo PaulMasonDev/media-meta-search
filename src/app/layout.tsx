@@ -29,6 +29,7 @@ export default function RootLayout({
             </div>
             <div id="modal-root" />
             <Toaster />
+            <h6 className="text-center text-xs">&copy; 2024 Paul Mason</h6>
           </body>
         </html>
       </SearchProvider>
