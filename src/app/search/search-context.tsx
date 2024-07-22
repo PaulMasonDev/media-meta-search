@@ -13,9 +13,16 @@ import {
 import { type TvShow } from "~/server/types/search-types";
 import { fetchMyShows } from "./client-library";
 
+export interface ShowRecommendation {
+  showName: string;
+  reason: string;
+}
+
 interface SearchContextType {
   myShows: TvShow[];
   setMyShows: Dispatch<SetStateAction<TvShow[]>>;
+  myShowRecommendations: ShowRecommendation[];
+  setMyShowRecommendations: Dispatch<SetStateAction<ShowRecommendation[]>>;
   updateShows: () => Promise<void>;
 }
 
@@ -29,6 +36,9 @@ interface SearchProviderProperties {
 
 export const SearchProvider = ({ children }: SearchProviderProperties) => {
   const [myShows, setMyShows] = useState<TvShow[]>([]);
+  const [myShowRecommendations, setMyShowRecommendations] = useState<
+    ShowRecommendation[]
+  >([]);
 
   useEffect(() => {
     const fetchShows = async () => {
@@ -48,8 +58,10 @@ export const SearchProvider = ({ children }: SearchProviderProperties) => {
       myShows,
       setMyShows,
       updateShows,
+      myShowRecommendations,
+      setMyShowRecommendations,
     }),
-    [myShows],
+    [myShows, myShowRecommendations],
   );
 
   return (

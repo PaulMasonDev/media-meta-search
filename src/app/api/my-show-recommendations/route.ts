@@ -1,5 +1,6 @@
 // src/app/api/my-show-recommendations/route.ts
 import { type NextRequest, NextResponse } from "next/server";
+import { showRecommendationPrompt } from "./prompt";
 
 interface MyShowRecommendationPostData {
   names: string[];
@@ -17,8 +18,6 @@ export async function POST(request: NextRequest) {
   const data: MyShowRecommendationPostData =
     (await request.json()) as MyShowRecommendationPostData;
 
-  const prompt = `Based on the following shows: ${data.names.join(", ")}, recommend me some new shows to watch (maximum of 4 shows). Please include potential reasons for the recommendations as well when applicable.`;
-
   try {
     const openAIResponse = await fetch(
       "https://api.openai.com/v1/chat/completions",
@@ -30,7 +29,9 @@ export async function POST(request: NextRequest) {
         },
         body: JSON.stringify({
           model: "gpt-3.5-turbo",
-          messages: [{ role: "user", content: prompt }],
+          messages: [
+            { role: "user", content: showRecommendationPrompt(data.names) },
+          ],
           temperature: 0.7,
         }),
       },

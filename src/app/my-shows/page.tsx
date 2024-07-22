@@ -2,11 +2,16 @@
 
 import { useEffect, useState } from "react";
 import { ShowResult } from "../search/_components/ShowResult";
-import { useSearchContext } from "../search/search-context";
+import {
+  type ShowRecommendation,
+  useSearchContext,
+} from "../search/search-context";
 import { fetchShowRecommendations } from "../search/client-library";
+import { useRouter } from "next/navigation";
 
 const MyShowsPage = () => {
-  const { myShows } = useSearchContext();
+  const router = useRouter();
+  const { myShows, setMyShowRecommendations } = useSearchContext();
   const [showNames, setShowNames] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -18,7 +23,11 @@ const MyShowsPage = () => {
     setIsLoading(true);
     const recommendations = await fetchShowRecommendations(showNames);
     setIsLoading(false);
-    alert(recommendations);
+    const parsedRecommendations: ShowRecommendation[] = JSON.parse(
+      recommendations,
+    ) as ShowRecommendation[];
+    setMyShowRecommendations(parsedRecommendations);
+    router.push("/my-show-recommendations");
   };
 
   return (
@@ -28,7 +37,7 @@ const MyShowsPage = () => {
         <p>Loading...</p>
       ) : (
         <button onClick={handleClickRecommendations}>
-          Show Reccomendations
+          Show Recommendations
         </button>
       )}
       <div className="grid grid-cols-1 gap-6 p-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
