@@ -17,7 +17,6 @@ export const fetchShowRecommendations = async (showNames: string[]) => {
   if (!response.ok) {
     throw new Error("Failed to fetch show recommendations");
   }
-  const recommendations = (await response.json()) as string;
-  console.log(recommendations);
+  const recommendations = (await response.json()) as TvShow[];
   return recommendations;
 };

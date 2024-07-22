@@ -1,4 +1,3 @@
-// src/app/api/my-show-recommendations/route.ts
 import { type NextRequest, NextResponse } from "next/server";
 import { showRecommendationPrompt } from "./prompt";
 
@@ -43,7 +42,31 @@ export async function POST(request: NextRequest) {
 
     const openAIData: OpenAIResponse =
       (await openAIResponse.json()) as OpenAIResponse;
-    return NextResponse.json(openAIData.choices[0]?.message.content);
+    const parsedData: ShowRecommendation[] = JSON.parse(
+      openAIData.choices[0]?.message.content,
+    ) as ShowRecommendation[];
+    const showNames = parsedData.map((show) => show.showName);
+
+    const requests = showNames.map((showName) =>
+      fetch(`https://api.tvmaze.com/singlesearch/shows?q=${showName}`),
+    );
+    try {
+      const responses = await Promise.all(requests);
+      const data = await Promise.all(responses.map((res) => res.json()));
+      const showRecommendations = data.map((show) => {
+        return {
+          ...show,
+          reason: parsedData.find(
+            (parsedShow) => parsedShow.showName === show.name,
+          )?.reason,
+        };
+      });
+      return new NextResponse(JSON.stringify(showRecommendations));
+    } catch (error) {
+      console.error("Failed to retrieve show details", error);
+      return [];
+    }
+    // return NextResponse.json(openAIData.choices[0]?.message.content);
   } catch (error) {
     return new NextResponse(
       JSON.stringify({ error: (error as Error).message }),

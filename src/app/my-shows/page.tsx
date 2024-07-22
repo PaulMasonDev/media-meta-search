@@ -2,12 +2,10 @@
 
 import { useEffect, useState } from "react";
 import { ShowResult } from "../search/_components/ShowResult";
-import {
-  type ShowRecommendation,
-  useSearchContext,
-} from "../search/search-context";
+import { useSearchContext } from "../search/search-context";
 import { fetchShowRecommendations } from "../search/client-library";
 import { useRouter } from "next/navigation";
+import { type TvShow } from "~/server/types/search-types";
 
 const MyShowsPage = () => {
   const router = useRouter();
@@ -23,10 +21,7 @@ const MyShowsPage = () => {
     setIsLoading(true);
     const recommendations = await fetchShowRecommendations(showNames);
     setIsLoading(false);
-    const parsedRecommendations: ShowRecommendation[] = JSON.parse(
-      recommendations,
-    ) as ShowRecommendation[];
-    setMyShowRecommendations(parsedRecommendations);
+    setMyShowRecommendations(recommendations);
     router.push("/my-show-recommendations");
   };
 

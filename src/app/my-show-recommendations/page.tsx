@@ -1,25 +1,33 @@
 "use client";
 
-import Link from "next/link";
 import { useSearchContext } from "../search/search-context";
+import { ShowResult } from "../search/_components/ShowResult";
+import { useEffect, useState } from "react";
 
 const MyShowRecommendations = () => {
-  const { myShowRecommendations } = useSearchContext();
+  const { myShowRecommendations, myShows } = useSearchContext();
+  const [myShowIds, setMyShowIds] = useState<number[]>([]);
+
+  useEffect(() => {
+    setMyShowIds(myShows.map((show) => show.id));
+  }, [myShows]);
+
   return (
     <div className="m-4 mt-1 flex flex-col items-center justify-center">
       <h1 className="p-4 text-xl font-bold sm:text-3xl">
-        My Show Recommendataions
+        My Show Recommendations
       </h1>
-      {myShowRecommendations.map((recommendation) => {
-        const name = recommendation.showName;
+      {myShowRecommendations?.map((result) => {
         return (
-          <div key={name} className="p-4">
-            <Link href={`/search?searchTerm=${name}`}>
-              <h2 className="text-xl font-bold">
-                Search for {name}. Click Me!
-              </h2>
-            </Link>
-            <p>{recommendation.reason}</p>
+          <div key={result.id}>
+            <p>
+              Reason for {result.name}: {result.reason}
+            </p>
+            <ShowResult
+              key={result.id}
+              show={result}
+              isMyShow={myShowIds.includes(result.id)}
+            />
           </div>
         );
       })}
