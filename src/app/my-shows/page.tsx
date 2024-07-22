@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useSearchContext } from "../search/search-context";
-import { fetchShowRecommendations } from "../search/client-library";
+import { fetchShowRecommendations } from "../client-library";
 import { useRouter } from "next/navigation";
 import { useShowData } from "../_hooks/useShowData";
 import ShowList from "../_components/ShowList";
@@ -23,7 +23,7 @@ const MyShowsPage = () => {
     const recommendations = await fetchShowRecommendations(showNames);
     setIsLoading(false);
     setMyShowRecommendations(recommendations);
-    router.push("/my-show-recommendations");
+    router.push("/my-shows/recommendations");
   };
 
   return (

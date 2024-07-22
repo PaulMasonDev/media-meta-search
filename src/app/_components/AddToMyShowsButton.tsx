@@ -1,8 +1,8 @@
 import { SignedIn } from "@clerk/nextjs";
 // import { addToMyShows } from "~/server/search-queries";
 import { type TvShow } from "~/server/types/search-types";
-import { useSearchContext } from "../search-context";
 import { useState } from "react";
+import { useSearchContext } from "../search/search-context";
 
 export const AddToMyShowsButton = ({
   show,

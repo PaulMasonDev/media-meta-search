@@ -1,6 +1,6 @@
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
-import SearchBox from "../search/_components/SearchBox";
 import Link from "next/link";
+import SearchBox from "./SearchBox";
 
 export function TopNav() {
   return (

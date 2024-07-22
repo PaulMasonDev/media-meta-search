@@ -11,7 +11,7 @@ import {
   useEffect,
 } from "react";
 import { type TvShow } from "~/server/types/search-types";
-import { fetchMyShows } from "./client-library";
+import { fetchMyShows } from "../client-library";
 
 // export interface ShowRecommendation {
 //   showName: string;

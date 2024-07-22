@@ -1,8 +1,8 @@
 "use client";
 
-import { useShowData } from "../_hooks/useShowData";
-import { ShowResult } from "../search/_components/ShowResult";
-import { useSearchContext } from "../search/search-context";
+import { ShowResult } from "../../_components/ShowResult";
+import { useShowData } from "../../_hooks/useShowData";
+import { useSearchContext } from "../../search/search-context";
 
 const MyShowRecommendations = () => {
   const { myShowRecommendations } = useSearchContext();

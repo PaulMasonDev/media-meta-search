@@ -1,6 +1,5 @@
-// components/ShowList.tsx
-import { ShowResult } from "../search/_components/ShowResult";
 import { type TvShow } from "~/server/types/search-types";
+import { ShowResult } from "./ShowResult";
 
 interface ShowListProps {
   shows: TvShow[];
