@@ -1,15 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ShowResult } from "../search/_components/ShowResult";
 import { useSearchContext } from "../search/search-context";
 import { fetchShowRecommendations } from "../search/client-library";
 import { useRouter } from "next/navigation";
-import { type TvShow } from "~/server/types/search-types";
+import { useShowData } from "../_hooks/useShowData";
+import ShowList from "../_components/ShowList";
 
 const MyShowsPage = () => {
   const router = useRouter();
   const { myShows, setMyShowRecommendations } = useSearchContext();
+  const { myShowIds } = useShowData();
   const [showNames, setShowNames] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -35,11 +36,7 @@ const MyShowsPage = () => {
           Show Recommendations
         </button>
       )}
-      <div className="grid grid-cols-1 gap-6 p-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-        {myShows?.map((result) => {
-          return <ShowResult key={result.id} show={result} isMyShow={true} />;
-        })}
-      </div>
+      <ShowList shows={myShows} myShowIds={myShowIds} />
     </div>
   );
 };

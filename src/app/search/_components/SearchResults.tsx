@@ -1,10 +1,11 @@
+// components/SearchResults.tsx
 "use client";
 
 import { useEffect, useState } from "react";
 import { type TvShow } from "~/server/types/search-types";
 import { getTVShowsBySearchTerm, sortShows } from "~/server/search-queries";
-import { ShowResult } from "./ShowResult";
-import { useSearchContext } from "../search-context";
+import { useShowData } from "~/app/_hooks/useShowData";
+import ShowList from "~/app/_components/ShowList";
 
 interface SearchResultsProperties {
   searchTerm: string;
@@ -12,12 +13,7 @@ interface SearchResultsProperties {
 
 export const SearchResults = (props: SearchResultsProperties) => {
   const [searchResults, setSearchResults] = useState<TvShow[]>([]);
-  const { myShows } = useSearchContext();
-  const [myShowIds, setMyShowIds] = useState<number[]>([]);
-
-  useEffect(() => {
-    setMyShowIds(myShows.map((show) => show.id));
-  }, [myShows]);
+  const { myShowIds } = useShowData();
 
   useEffect(() => {
     const fetchTVShows = async () => {
@@ -35,17 +31,5 @@ export const SearchResults = (props: SearchResultsProperties) => {
     }
   }, [props.searchTerm]);
 
-  return (
-    <div className="grid grid-cols-1 gap-6 p-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-      {searchResults?.map((result) => {
-        return (
-          <ShowResult
-            key={result.id}
-            show={result}
-            isMyShow={myShowIds.includes(result.id)}
-          />
-        );
-      })}
-    </div>
-  );
+  return <ShowList shows={searchResults} myShowIds={myShowIds} />;
 };
