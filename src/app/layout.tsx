@@ -6,6 +6,7 @@ import { GeistSans } from "geist/font/sans";
 import { TopNav } from "./_components/TopNav";
 import { Toaster } from "sonner";
 import { ShowsProvider } from "./search/shows-context";
+import Footer from "./_components/Footer";
 
 export const metadata = {
   title: "Media Meta Search",
@@ -29,7 +30,7 @@ export default function RootLayout({
             </div>
             <div id="modal-root" />
             <Toaster />
-            <h6 className="text-center text-xs">&copy; 2024 Paul Mason</h6>
+            <Footer />
           </body>
         </html>
       </ShowsProvider>

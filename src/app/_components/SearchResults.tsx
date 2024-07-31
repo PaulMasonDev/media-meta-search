@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { type TvShow } from "~/server/types/search-types";
 import { getTVShowsBySearchTerm, sortShows } from "~/server/search-queries";
 import { useShowData } from "~/app/_hooks/useShowData";
-import ShowList from "~/app/_components/ShowList";
+import ShowList from "./show/ShowList";
 
 interface SearchResultsProperties {
   searchTerm: string;

@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import { fetchShowRecommendations } from "../client-library";
 import { useRouter } from "next/navigation";
 import { useShowData } from "../_hooks/useShowData";
-import ShowList from "../_components/ShowList";
 import { useShowsContext } from "../search/shows-context";
+import ShowList from "../_components/show/ShowList";
 
 const MyShowsPage = () => {
   const router = useRouter();
