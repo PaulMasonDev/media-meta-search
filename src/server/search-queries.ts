@@ -34,8 +34,22 @@ export const getEpisodeById = async (id: number) => {
 
 export const sortShows = (shows: TvShow[]) => {
   // return sortShowsByRunningStatus(shows);
-  return shows;
+  return sortShowsByUpcomingEpisodesFirst(shows);
+  // return shows;
 };
+
+const sortShowsByUpcomingEpisodesFirst = (shows: TvShow[]) => {
+  const showsWithNextEpisode = shows.filter((show) => show._links.nextepisode);
+  const showsWithoutNextEpisode = shows.filter(
+    (show) => !show._links.nextepisode,
+  );
+  return [...showsWithNextEpisode, ...showsWithoutNextEpisode];
+};
+// const sortShowsByCurrentlyRunningFirst = (shows: TvShow[]) => {
+//   const runningShows = shows.filter((show) => show.status === "Running");
+//   const endedShows = shows.filter((show) => show.status === "Ended");
+//   return [...runningShows, ...endedShows];
+// };
 
 //TODO: Reintroduce once sorting is decided on more
 // const sortShowsByRunningStatus = (shows: TvShow[]) => {
