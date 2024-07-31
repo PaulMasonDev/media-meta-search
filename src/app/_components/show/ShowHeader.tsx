@@ -1,8 +1,8 @@
 import { type TvShow } from "~/server/types/search-types";
 import ShowImage from "./ShowImage";
-import { GenresDisplay } from "../GenresDisplay";
-import { NextEpisode } from "../NextEpisode";
-import EndedStatus from "../EndedStatus";
+import { GenresDisplay } from "./GenresDisplay";
+import { NextEpisode } from "./NextEpisode";
+import EndedStatus from "./EndedStatus";
 import RedditLink from "./RedditLink";
 
 export const ShowHeader = ({ show }: { show: TvShow }) => {

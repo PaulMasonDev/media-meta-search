@@ -1,7 +1,7 @@
 import { type TvShow } from "~/server/types/search-types";
 
 import { ShowHeader } from "./ShowHeader";
-import { AddToMyShowsButton } from "../AddToMyShowsButton";
+import { AddToMyShowsButton } from "./AddToMyShowsButton";
 
 export const ShowResult = ({
   show,

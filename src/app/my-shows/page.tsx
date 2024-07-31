@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useShowData } from "../_hooks/useShowData";
 import { useShowsContext } from "../search/shows-context";
 import ShowList from "../_components/show/ShowList";
+import { sortShows } from "~/server/search-queries";
 
 const MyShowsPage = () => {
   const router = useRouter();
@@ -36,7 +37,7 @@ const MyShowsPage = () => {
           Show Recommendations
         </button>
       )}
-      <ShowList shows={myShows} myShowIds={myShowIds} />
+      <ShowList shows={sortShows(myShows)} myShowIds={myShowIds} />
     </div>
   );
 };
