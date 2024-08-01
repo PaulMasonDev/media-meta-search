@@ -6,8 +6,8 @@ export const NextEpisode = ({ nextEpisode }: { nextEpisode: TvEpisode }) => {
   return (
     <h3 className="flex flex-wrap">
       <div className="">
-        {`S${nextEpisode.season}:E${nextEpisode.number} "${nextEpisode.name}"`}{" "}
-        airs on {new Date(nextEpisode?.airdate).toLocaleDateString()}
+        {`S${nextEpisode.season}:E${nextEpisode.number} ${nextEpisode.name !== "TBA" ? `"${nextEpisode.name}"` : ""}`}
+        airing on {new Date(nextEpisode?.airdate).toLocaleDateString()}
       </div>
     </h3>
   );
