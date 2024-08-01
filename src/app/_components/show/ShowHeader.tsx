@@ -10,7 +10,7 @@ export const ShowHeader = ({ show }: { show: TvShow }) => {
     <div className="flex flex-col items-center gap-2">
       <ShowImage show={show} />
       <GenresDisplay id={show.id} genres={show.genres} />
-      {<NextEpisode show={show} />}
+      {show.nextEpisode && <NextEpisode nextEpisode={show.nextEpisode} />}
       <EndedStatus show={show} />
       <RedditLink show={show} />
     </div>

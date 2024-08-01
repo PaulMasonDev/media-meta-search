@@ -62,6 +62,7 @@ export type TvShow = {
       name: string;
     };
   };
+  nextEpisode?: TvEpisode;
 };
 
 export type TvEpisode = {

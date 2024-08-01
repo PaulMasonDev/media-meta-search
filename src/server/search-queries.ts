@@ -39,40 +39,24 @@ export const sortShows = (shows: TvShow[]) => {
 };
 
 const sortShowsByUpcomingEpisodesFirst = (shows: TvShow[]) => {
-  const showsWithNextEpisode = shows.filter((show) => show._links.nextepisode);
+  const showsWithNextEpisode = shows
+    .filter((show) => show.nextEpisode)
+    .sort((a, b) => {
+      if (a.nextEpisode?.airdate && b.nextEpisode?.airdate) {
+        const aDate = new Date(a.nextEpisode.airdate);
+        const bDate = new Date(b.nextEpisode.airdate);
+        if (aDate < bDate) {
+          return -1;
+        }
+        if (aDate > bDate) {
+          return 1;
+        }
+        return 0;
+      }
+      return 0;
+    });
   const showsWithoutNextEpisode = shows.filter(
     (show) => !show._links.nextepisode,
   );
   return [...showsWithNextEpisode, ...showsWithoutNextEpisode];
 };
-// const sortShowsByCurrentlyRunningFirst = (shows: TvShow[]) => {
-//   const runningShows = shows.filter((show) => show.status === "Running");
-//   const endedShows = shows.filter((show) => show.status === "Ended");
-//   return [...runningShows, ...endedShows];
-// };
-
-//TODO: Reintroduce once sorting is decided on more
-// const sortShowsByRunningStatus = (shows: TvShow[]) => {
-//   //Sort by running status and then the ended shows should be sorted by ended date
-//   const runningShows = shows.filter((show) => show.status === "Running");
-//   const endedShows = shows.filter((show) => show.status === "Ended");
-//   const sortedRunningShows = runningShows.sort((a, b) => {
-//     if (a.premiered < b.premiered) {
-//       return 1;
-//     }
-//     if (a.premiered > b.premiered) {
-//       return -1;
-//     }
-//     return 0;
-//   });
-//   const sortedEndedShows = endedShows.sort((a, b) => {
-//     if (a.ended < b.ended) {
-//       return 1;
-//     }
-//     if (a.ended > b.ended) {
-//       return -1;
-//     }
-//     return 0;
-//   });
-//   return [...sortedRunningShows, ...sortedEndedShows];
-// };
