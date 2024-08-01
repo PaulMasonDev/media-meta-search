@@ -36,7 +36,7 @@ export type TvShow = {
     };
     officialSite: string | null;
   };
-  webChannel: string | null;
+  webChannel: { name: string } | null;
   dvdCountry: string | null;
   externals: {
     tvrage: number;
