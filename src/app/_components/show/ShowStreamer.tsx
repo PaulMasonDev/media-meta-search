@@ -1,13 +1,13 @@
 import Link from "next/link";
 import {
   AmazonPrimeSVG,
+  AngelStudiosSVG,
   AppleTvSVG,
   NetflixSVG,
   ParamountPlusSVG,
 } from "~/SVG/streamers";
 
 const getStreamerIcon = (name: string) => {
-  console.log(name);
   switch (name) {
     case "Netflix":
       return <NetflixSVG />;
@@ -17,8 +17,8 @@ const getStreamerIcon = (name: string) => {
       return <AmazonPrimeSVG />;
     case "Paramount+":
       return <ParamountPlusSVG />;
-    case "HBO":
-      return <img src="/streamers/hbo.svg" alt="HBO" className="h-10 w-10" />;
+    case "Angel Studios":
+      return <AngelStudiosSVG />;
     default:
       return <div>{name}</div>;
   }

@@ -19,6 +19,8 @@ interface ShowsContextType {
   myShowRecommendations: TvShow[];
   setMyShowRecommendations: Dispatch<SetStateAction<TvShow[]>>;
   updateShows: () => Promise<void>;
+  isLoading: boolean;
+  setIsLoading: Dispatch<SetStateAction<boolean>>;
 }
 
 export const ShowsContext = createContext<ShowsContextType | undefined>(
@@ -34,18 +36,23 @@ export const ShowsProvider = ({ children }: ShowsProviderProperties) => {
   const [myShowRecommendations, setMyShowRecommendations] = useState<TvShow[]>(
     [],
   );
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchShows = async () => {
+      setIsLoading(true);
       const fetchedShows = await fetchMyShows();
       setMyShows(fetchedShows);
+      setIsLoading(false);
     };
     void fetchShows();
   }, []);
 
   const updateShows = async () => {
+    setIsLoading(true);
     const fetchedShows = await fetchMyShows();
     setMyShows(fetchedShows);
+    setIsLoading(false);
   };
 
   const contextValue = useMemo(
@@ -55,8 +62,10 @@ export const ShowsProvider = ({ children }: ShowsProviderProperties) => {
       updateShows,
       myShowRecommendations,
       setMyShowRecommendations,
+      isLoading,
+      setIsLoading,
     }),
-    [myShows, myShowRecommendations],
+    [myShows, myShowRecommendations, isLoading],
   );
 
   return (

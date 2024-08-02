@@ -10,36 +10,40 @@ import { sortShows } from "~/server/search-queries";
 
 const MyShowsPage = () => {
   const router = useRouter();
-  const { myShows, setMyShowRecommendations } = useShowsContext();
+  const { myShows, setMyShowRecommendations, isLoading } = useShowsContext();
   const { myShowIds } = useShowData();
   const [showNames, setShowNames] = useState<string[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingRecs, setIsLoadingRecs] = useState(false);
 
   useEffect(() => {
     setShowNames(myShows.map((show) => show.name));
   }, [myShows]);
 
   const handleClickRecommendations = async () => {
-    setIsLoading(true);
+    setIsLoadingRecs(true);
     const recommendations = await fetchShowRecommendations(showNames);
-    setIsLoading(false);
+    setIsLoadingRecs(false);
     setMyShowRecommendations(recommendations);
     router.push("/my-shows/recommendations");
   };
 
-  return (
-    <div className="m-4 mt-1 flex flex-col items-center justify-center">
-      <h1 className="p-4 text-xl font-bold sm:text-3xl">My Shows</h1>
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : (
-        <button onClick={handleClickRecommendations}>
-          Show Recommendations
-        </button>
-      )}
-      <ShowList shows={sortShows(myShows)} myShowIds={myShowIds} />
-    </div>
-  );
+  if (isLoading) {
+    return <p>Loading your shows...</p>;
+  } else {
+    return (
+      <div className="m-4 mt-1 flex flex-col items-center justify-center">
+        <h1 className="p-4 text-xl font-bold sm:text-3xl">My Shows</h1>
+        {isLoadingRecs ? (
+          <p>Loading your recommendations...</p>
+        ) : (
+          <button onClick={handleClickRecommendations}>
+            Show Recommendations
+          </button>
+        )}
+        <ShowList shows={sortShows(myShows)} myShowIds={myShowIds} />
+      </div>
+    );
+  }
 };
 
 export default MyShowsPage;
