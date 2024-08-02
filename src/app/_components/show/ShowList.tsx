@@ -22,7 +22,7 @@ const ShowList = ({ shows, myShowIds }: ShowListProps) => {
       <h3 className="text-center">
         Showing {filteredShows.length} of {filteredShows.length} shows
       </h3>
-      <div className="mb-3 ml-1 flex place-content-center gap-1">
+      <div className="mb-3 ml-1 flex items-center justify-center gap-1">
         <input
           type="checkbox"
           checked={runningStatus}
