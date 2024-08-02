@@ -31,13 +31,16 @@ const MyShowsPage = () => {
     return <p>Loading your shows...</p>;
   } else {
     return (
-      <div className="m-4 mt-1 flex flex-col items-center justify-center">
+      <div className="m-4 mt-1 flex flex-col items-center justify-center gap-2">
         <h1 className="p-4 text-xl font-bold sm:text-3xl">My Shows</h1>
         {isLoadingRecs ? (
           <p>Loading your recommendations...</p>
         ) : (
-          <button onClick={handleClickRecommendations}>
-            Show Recommendations
+          <button
+            className="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
+            onClick={handleClickRecommendations}
+          >
+            Show AI Recommendations
           </button>
         )}
         <ShowList shows={sortShows(myShows)} myShowIds={myShowIds} />
