@@ -4,7 +4,7 @@ import SearchBox from "./SearchBox";
 
 export function TopNav() {
   return (
-    <nav className="flex w-full items-center justify-between border-b border-blue-500 p-3 pb-6 pt-6 text-xl font-semibold sm:pr-8">
+    <nav className="flex w-full items-center justify-between gap-2 border-b border-blue-500 p-3 pb-6 pt-6 text-xl font-semibold sm:pr-8">
       <div className="flex items-center justify-center gap-2">
         <Link className="w-14 pl-2 pr-2" href="/">
           <img className="rounded-lg" src="/mms-logo.jpg" alt="" />
@@ -19,8 +19,10 @@ export function TopNav() {
             <SignInButton />
           </SignedOut>
           <SignedIn>
-            <div className="pr-2.5 pt-1.5 sm:pr-0">
-              <Link href="/my-shows">My Shows</Link>
+            <div className="flex justify-center gap-2 pr-2.5 pt-1.5 sm:pr-0">
+              <Link className="text-center" href="/my-shows">
+                My Shows
+              </Link>
               <UserButton />
             </div>
           </SignedIn>
