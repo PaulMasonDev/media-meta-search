@@ -2,8 +2,8 @@
 
 import { useShowsContext } from "~/app/search/shows-context";
 import { useShowData } from "../../_hooks/useShowData";
-import { ShowResult } from "~/app/_components/show/ShowResult";
 import { sortShows } from "~/server/search-queries";
+import ShowList from "~/app/_components/show/ShowList";
 
 const MyShowRecommendations = () => {
   const { myShowRecommendations } = useShowsContext();
@@ -14,18 +14,13 @@ const MyShowRecommendations = () => {
       <h1 className="p-4 text-xl font-bold sm:text-3xl">
         My Show Recommendations
       </h1>
-      {sortShows(myShowRecommendations)?.map((result) => (
-        <div key={result.id}>
-          <p>
-            Reason for {result.name}: {result.reason}
-          </p>
-          <ShowResult
-            key={result.id}
-            show={result}
-            isMyShow={myShowIds.includes(result.id)}
-          />
-        </div>
-      ))}
+      <div>
+        <ShowList
+          shows={sortShows(myShowRecommendations)}
+          myShowIds={myShowIds}
+          reason={true}
+        />
+      </div>
     </div>
   );
 };
