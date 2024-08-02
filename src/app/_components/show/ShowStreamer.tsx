@@ -3,24 +3,31 @@ import {
   AmazonPrimeSVG,
   AngelStudiosSVG,
   AppleTvSVG,
+  DisneyPlusSVG,
+  HuluSVG,
   NetflixSVG,
   ParamountPlusSVG,
+  YouTubeSVG,
 } from "~/SVG/streamers";
 
 const getStreamerIcon = (name: string) => {
   switch (name) {
-    case "Netflix":
-      return <NetflixSVG />;
-    case "Apple TV+":
-      return <AppleTvSVG />;
-    case "Prime Video":
-      return <AmazonPrimeSVG />;
-    case "Paramount+":
-      return <ParamountPlusSVG />;
     case "Angel Studios":
       return <AngelStudiosSVG />;
-    // case "Peacock":
-    //   return <PeacockSVG />;
+    case "Apple TV+":
+      return <AppleTvSVG />;
+    case "Disney+":
+      return <DisneyPlusSVG />;
+    case "Hulu":
+      return <HuluSVG />;
+    case "Netflix":
+      return <NetflixSVG />;
+    case "Paramount+":
+      return <ParamountPlusSVG />;
+    case "Prime Video":
+      return <AmazonPrimeSVG />;
+    case "YouTube":
+      return <YouTubeSVG />;
     default:
       return <div>{name}</div>;
   }
