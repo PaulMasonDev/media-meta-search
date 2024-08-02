@@ -4,7 +4,7 @@ import SearchBox from "./SearchBox";
 
 export function TopNav() {
   return (
-    <nav className="flex w-full items-center justify-between gap-2 border-b border-blue-500 p-3 pb-6 pt-6 text-xl font-semibold sm:pr-8">
+    <nav className="flex w-full items-center justify-between border-b border-blue-500 p-3 pb-6 pt-6 text-xl font-semibold sm:pr-8">
       <div className="flex items-center justify-center gap-2">
         <Link className="w-14 pl-2 pr-2" href="/">
           <img className="rounded-lg" src="/mms-logo.jpg" alt="" />
