@@ -19,6 +19,8 @@ const getStreamerIcon = (name: string) => {
       return <ParamountPlusSVG />;
     case "Angel Studios":
       return <AngelStudiosSVG />;
+    // case "Peacock":
+    //   return <PeacockSVG />;
     default:
       return <div>{name}</div>;
   }

@@ -38,6 +38,12 @@ export const sortShows = (shows: TvShow[]) => {
   // return shows;
 };
 
+export const filterByRunningStatus = (shows: TvShow[], isRunning: boolean) => {
+  return shows.filter(
+    (show) => show.status === (isRunning ? "Running" : "Ended"),
+  );
+};
+
 const sortShowsByUpcomingEpisodesFirst = (shows: TvShow[]) => {
   const showsWithNextEpisode = shows
     .filter((show) => show.nextEpisode)

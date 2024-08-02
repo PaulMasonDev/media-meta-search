@@ -17,6 +17,7 @@ export async function POST(request: NextRequest) {
   const data: MyShowRecommendationPostData =
     (await request.json()) as MyShowRecommendationPostData;
 
+  console.log(data.names);
   try {
     const openAIResponse = await fetch(
       "https://api.openai.com/v1/chat/completions",
