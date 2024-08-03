@@ -10,7 +10,7 @@ export const AddToMyShowsButton = ({
   show: TvShow;
   isMyShow: boolean;
 }) => {
-  const { updateShows } = useShowsContext();
+  const { updateShows, myShows } = useShowsContext();
 
   const [isProcessing, setIsProcessing] = useState(false);
 
@@ -54,6 +54,7 @@ export const AddToMyShowsButton = ({
           <button
             className="focus:shadow-outline rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 focus:outline-none"
             onClick={handleAdd}
+            disabled={myShows.length > 10}
           >
             Add to my shows
           </button>
