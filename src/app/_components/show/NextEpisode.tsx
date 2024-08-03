@@ -9,7 +9,7 @@ export const NextEpisode = ({ nextEpisode }: { nextEpisode: TvEpisode }) => {
         {`S${nextEpisode.season}:E${nextEpisode.number} ${nextEpisode.name !== "TBA" ? `"${nextEpisode.name} "` : ""}`}
         airing on {new Date(nextEpisode?.airdate).toLocaleDateString()}
       </div>
-<span>{nextEpisode?.airdate}</>
+<span>{nextEpisode?.airdate}</span>
     </h3>
   );
 };
