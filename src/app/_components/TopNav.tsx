@@ -19,7 +19,7 @@ export function TopNav() {
             <SignInButton />
           </SignedOut>
           <SignedIn>
-            <div className="flex justify-center gap-2 pr-2.5 pt-1.5 sm:pr-0">
+            <div className="pr-2.5 pt-1.5 sm:pr-0">
               <Link className="text-center" href="/my-shows">
                 My Shows
               </Link>
