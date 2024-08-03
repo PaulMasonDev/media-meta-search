@@ -19,7 +19,9 @@ export async function GET() {
     await db.insert(users).values({ userId: user.userId, myShowIds: [] });
     return new NextResponse(JSON.stringify([]));
   } else {
-    const requests = existingUser.myShowIds.map((id) =>
+    const requests = existingUser.myShowIds
+    .filter((_, index) => index < 10)
+    .map((id) =>
       fetch(`https://api.tvmaze.com/shows/${id}`),
     );
 
