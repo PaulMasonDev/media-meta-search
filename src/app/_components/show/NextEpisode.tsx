@@ -3,7 +3,7 @@
 import { type TvEpisode } from "~/server/types/search-types";
 
 export const NextEpisode = ({ nextEpisode }: { nextEpisode: TvEpisode }) => {
-  const utcDate = new Date(`${nextEpisode?.airdate}T00:00:00Z`);
+  const utcDate = new Date(Date.UTC(nextEpisode?.airdate.split('-')[0], nextEpisode?.airdate.split('-')[1] - 1, nextEpisode?.airdate.split('-')[2]));
   const formattedDate = utcDate.toLocaleDateString();
   
   return (
