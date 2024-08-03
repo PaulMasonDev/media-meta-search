@@ -20,7 +20,7 @@ export async function GET() {
     return new NextResponse(JSON.stringify([]));
   } else {
     const requests = existingUser.myShowIds
-    .filter((_, index) => index < 10)
+    // Need to limit the concurrent requests
     .map((id) =>
       fetch(`https://api.tvmaze.com/shows/${id}`),
     );
