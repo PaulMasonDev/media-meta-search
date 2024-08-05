@@ -1,6 +1,6 @@
 import { SignedIn } from "@clerk/nextjs";
 import { type TvShow } from "~/server/types/search-types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useShowsContext } from "../../search/shows-context";
 
 export const AddToMyShowsButton = ({
@@ -10,9 +10,12 @@ export const AddToMyShowsButton = ({
   show: TvShow;
   isMyShow: boolean;
 }) => {
-  const { updateShows } = useShowsContext();
+  const { updateShows, myShows } = useShowsContext();
 
   const [isProcessing, setIsProcessing] = useState(false);
+  const [canAdd, setCanAdd] = useState(false);
+
+  const maxShows = 16; // Maybe this can be tied to user setting depending on subscription
 
   const handleAdd = async () => {
     setIsProcessing(true);
@@ -26,6 +29,7 @@ export const AddToMyShowsButton = ({
     await updateShows();
     setIsProcessing(false);
   };
+
   const handleDelete = async () => {
     setIsProcessing(true);
     const response = await fetch("/api/my-show-ids", {
@@ -38,6 +42,11 @@ export const AddToMyShowsButton = ({
     await updateShows();
     setIsProcessing(false);
   };
+
+  useEffect(() => {
+    setCanAdd(myShows.length < maxShows);
+  }, [myShows]);
+
   return (
     <div className="flex items-center justify-center">
       <SignedIn>
@@ -50,13 +59,15 @@ export const AddToMyShowsButton = ({
           >
             Remove from My Shows
           </button>
-        ) : (
+        ) : canAdd ? (
           <button
             className="focus:shadow-outline rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 focus:outline-none"
             onClick={handleAdd}
           >
             Add to my shows
           </button>
+        ) : (
+          <em>You can only add a max of {maxShows} shows.</em>
         )}
       </SignedIn>
     </div>

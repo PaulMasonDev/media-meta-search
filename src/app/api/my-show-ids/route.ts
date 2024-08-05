@@ -19,7 +19,6 @@ export async function GET() {
     await db.insert(users).values({ userId: user.userId, myShowIds: [] });
     return new NextResponse(JSON.stringify([]));
   } else {
-    console.log("test", existingUser.myShowIds);
     return existingUser.myShowIds;
   }
 }
