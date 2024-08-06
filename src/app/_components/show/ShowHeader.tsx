@@ -5,6 +5,7 @@ import { NextEpisode } from "./NextEpisode";
 import EndedStatus from "./EndedStatus";
 import RedditLink from "./RedditLink";
 import ShowStreamer from "./ShowStreamer";
+import SeriesRecap from "./SeriesRecap";
 
 export const ShowHeader = ({ show }: { show: TvShow }) => {
   return (
@@ -17,6 +18,7 @@ export const ShowHeader = ({ show }: { show: TvShow }) => {
         />
       )}
       <GenresDisplay id={show.id} genres={show.genres} />
+      <SeriesRecap showName={show.name} />
       {show.nextEpisode && <NextEpisode nextEpisode={show.nextEpisode} />}
       <EndedStatus show={show} />
       <RedditLink show={show} />
