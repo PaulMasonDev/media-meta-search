@@ -15,7 +15,7 @@ export const AddToMyShowsButton = ({
   const [isProcessing, setIsProcessing] = useState(false);
   const [canAdd, setCanAdd] = useState(false);
 
-  const maxShows = 16; // Maybe this can be tied to user setting depending on subscription
+  const maxShows = 20; // Maybe this can be tied to user setting depending on subscription
 
   const handleAdd = async () => {
     setIsProcessing(true);
