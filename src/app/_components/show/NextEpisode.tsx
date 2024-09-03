@@ -1,5 +1,3 @@
-"use client";
-
 import { type TvEpisode } from "~/server/types/search-types";
 
 export const NextEpisode = ({ nextEpisode }: { nextEpisode: TvEpisode }) => {

@@ -1,4 +1,3 @@
-// components/SearchResults.tsx
 "use client";
 
 import { useEffect, useState } from "react";
@@ -6,19 +5,18 @@ import { type TvShow } from "~/server/types/search-types";
 import { getTVShowsBySearchTerm } from "~/server/search-queries";
 import { useShowData } from "~/app/_hooks/useShowData";
 import ShowList from "./show/ShowList";
+import { useSearchParams } from "next/navigation";
 
-interface SearchResultsProperties {
-  searchTerm: string;
-}
-
-export const SearchResults = (props: SearchResultsProperties) => {
+export const SearchResults = () => {
+  const searchParams = useSearchParams();
+  const searchTerm = searchParams.get("searchTerm");
   const [searchResults, setSearchResults] = useState<TvShow[]>([]);
   const { myShowIds } = useShowData();
 
   useEffect(() => {
     const fetchTVShows = async () => {
       try {
-        const results = await getTVShowsBySearchTerm(props.searchTerm);
+        const results = await getTVShowsBySearchTerm(searchTerm ?? "");
         setSearchResults(results);
       } catch (error) {
         console.error("Failed to fetch TV shows:", error);
@@ -26,10 +24,17 @@ export const SearchResults = (props: SearchResultsProperties) => {
       }
     };
 
-    if (props.searchTerm) {
+    if (searchTerm) {
       void fetchTVShows();
     }
-  }, [props.searchTerm]);
+  }, [searchTerm]);
 
-  return <ShowList shows={searchResults} myShowIds={myShowIds} />;
+  return (
+    <>
+      <h1 className="p-4 text-xl font-bold sm:text-3xl">
+        Showing results for {`"${searchTerm}"`}
+      </h1>
+      <ShowList shows={searchResults} myShowIds={myShowIds} />
+    </>
+  );
 };

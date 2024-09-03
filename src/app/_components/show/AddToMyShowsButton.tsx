@@ -1,3 +1,5 @@
+"use client";
+
 import { SignedIn } from "@clerk/nextjs";
 import { type TvShow } from "~/server/types/search-types";
 import { useEffect, useState } from "react";
