@@ -4,7 +4,6 @@ import { ClerkProvider } from "@clerk/nextjs";
 
 import { GeistSans } from "geist/font/sans";
 import { TopNav } from "./_components/TopNav";
-import { Toaster } from "sonner";
 import { ShowsProvider } from "./search/shows-context";
 import Footer from "./_components/Footer";
 
@@ -29,7 +28,6 @@ export default function RootLayout({
               <main className="overflow-y-scroll">{children}</main>
             </div>
             <div id="modal-root" />
-            <Toaster />
             <Footer />
           </body>
         </html>
