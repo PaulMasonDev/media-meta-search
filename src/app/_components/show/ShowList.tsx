@@ -19,7 +19,7 @@ const ShowList = ({ shows, myShowIds, reason }: ShowListProps) => {
     : shows;
 
   return (
-    <div>
+    <div className="w-full">
       <h3 className="text-center">
         Showing {filteredShows.length} of {filteredShows.length} shows
       </h3>
