@@ -15,7 +15,7 @@ import {
   ThrillerSVG,
 } from "~/SVG/genres";
 
-const getGenreSVG = (genre: string) => {
+export const getGenreSVG = (genre: string) => {
   switch (genre) {
     case "Action":
       return <ActionSVG />;
