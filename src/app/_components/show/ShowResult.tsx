@@ -9,6 +9,6 @@ export const ShowResult = ({
   show: TvShow;
   isMyShow: boolean;
 }) => {
-  return <ShowResultA show={show} isMyShow={isMyShow} />;
-  // return <ShowResultB show={show} isMyShow={isMyShow} />;
+  // return <ShowResultA show={show} isMyShow={isMyShow} />;
+  return <ShowResultB show={show} isMyShow={isMyShow} />;
 };
