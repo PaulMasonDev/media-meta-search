@@ -22,9 +22,9 @@ const MyShowsPage = () => {
   const handleClickRecommendations = async () => {
     setIsLoadingRecs(true);
     const recommendations = await fetchShowRecommendations(showNames);
-    setIsLoadingRecs(false);
     setMyShowRecommendations(recommendations);
     router.push("/my-shows/recommendations");
+    setIsLoadingRecs(false);
   };
 
   if (isLoading) {
@@ -39,9 +39,8 @@ const MyShowsPage = () => {
           <button
             className="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
             onClick={handleClickRecommendations}
-            disabled={true}
           >
-            Show AI Recommendations (In development...)
+            Show AI Recommendations
           </button>
         )}
         <ShowList shows={sortShows(myShows)} myShowIds={myShowIds} />
