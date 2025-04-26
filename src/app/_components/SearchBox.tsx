@@ -24,7 +24,7 @@ const SearchBox = () => {
           type="search"
           value={searchTerm}
           onChange={handleChange}
-          placeholder="Search for a show..."
+          placeholder="Search shows"
         />
       </form>
     </div>
